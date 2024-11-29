@@ -9,7 +9,7 @@ app.use(express.json())
 const db={
     host:'localhost',
     user:'root',
-    password:'27586616',
+    password:'12345678',
     database:'agenda'
 }
 

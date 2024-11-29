@@ -1,47 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { NavParams } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { ModalController, NavParams } from '@ionic/angular';
 import { AgendaService } from 'src/app/model/agenda/agenda.service';
+
 @Component({
   selector: 'app-info-user',
   templateUrl: './info-user.page.html',
   styleUrls: ['./info-user.page.scss'],
 })
-export class InfoUserPage implements OnInit {
-  dados: any;
+export class InfoUserPage {
+  dados = this.navParams.get('dados');
 
   constructor(
     private navParams: NavParams,
     private modalCtrl: ModalController,
     private service: AgendaService
-  ) {
-    this.dados = this.navParams.get('dados');
+  ) {}
+
+  private handleAction(action: string, method: any) {
+    method().subscribe(
+      (response: any) => {
+        console.log(`${action} com sucesso:`, response);
+        this.closeModal();
+      },
+      (error: any) => console.error(`Erro ao ${action} usuário:`, error)
+    );
   }
 
   update() {
-    this.service.updateUser(this.dados).subscribe(
-      (response) => {
-        console.log('Usuário atualizado com sucesso:', response);
-        this.closeModal();
-      },
-      (error) => {
-        console.error('Erro ao atualizar usuário:', error);
-      }
-    );
+    this.handleAction('Atualizar', () => this.service.updateUser(this.dados));
   }
 
   deleteUser() {
-    this.service.deleteUser(this.dados.id).subscribe(
-      (response) => {
-        console.log('Usuário excluído com sucesso:', response);
-        this.closeModal();
-      },
-      (error) => {
-        console.error('Erro ao excluir usuário:', error);
-      }
-    );
+    this.handleAction('Excluir', () => this.service.deleteUser(this.dados.id));
   }
-  ngOnInit() {}
 
   closeModal() {
     this.modalCtrl.dismiss();
