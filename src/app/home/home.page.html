@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Agenda
+    </ion-title>
+    <ion-buttons slot="end"> 
+      <ion-button (click)="logout()"> 
+        Sair
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>
+      <ion-button class="botao" expand="block" (click)="openAddUserModal()">Adicionar</ion-button>
+    </ion-list-header>
+    
+    <ion-item *ngFor="let a of agendas">
+      <ion-label (click)="openInfoUserModal(a)">
+       {{a.usuario}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

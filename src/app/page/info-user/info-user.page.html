@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>info-user</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contato</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-input type="text" label="Usuário" labelPlacement="floating" [(ngModel)]="dados.usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" label="E-mail" labelPlacement="floating" [(ngModel)]="dados.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" label="Telefone" labelPlacement="floating" [(ngModel)]="dados.telefone"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="update()">
+    <ion-icon size="large" name="create-outline"></ion-icon>
+  </ion-button>
+  <ion-button (click)="deleteUser()">
+    <ion-icon size="large" name="trash-outline"></ion-icon>
+  </ion-button>
+</ion-content>

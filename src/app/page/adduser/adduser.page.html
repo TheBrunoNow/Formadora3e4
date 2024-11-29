@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>adduser</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Adicionar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-input type="text" label="Usuário" labelPlacement="floating" placeholder="Usuário" [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" label="E-mail" labelPlacement="floating" placeholder="E-mail" [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" label="Telefone" labelPlacement="floating" placeholder="Telefone" [(ngModel)]="telefone"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="addNew()">Salvar</ion-button>
+</ion-content>

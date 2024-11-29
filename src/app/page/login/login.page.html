@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="corpo">
+
+    <ion-row>
+      <ion-col>
+      
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="email" label="Email" labelPlacement="floating" placeholder="Digite Seu E-mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="senha" label="Senha" labelPlacement="floating" placeholder="Digite Sua Senha"></ion-input>
+          </ion-item>
+
+          <p *ngIf="mensagem" class="error-message">{{ mensagem }}</p>
+          
+          <ion-button type="button" expand="block" 
+          color="light" class="botao_acessar" id="open-toast" (click)="login()" >Acessar</ion-button>
+
+
+          <ion-row class="redefinir_senha1">
+            <ion-col>
+              <ion-router-link routerLink="/#" class="link">Redefinir Senha</ion-router-link>
+            </ion-col>
+          </ion-row>
+
+         <!--  <ion-row class="ion-justify-content-center">
+            <ion-col size="auto">
+              <ion-router-link routerLink="/cadastro" class="link">Criar Conta</ion-router-link>
+            </ion-col>
+          </ion-row> -->
+       
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
